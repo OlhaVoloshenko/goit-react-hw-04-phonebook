@@ -1,11 +1,11 @@
 import { Component } from 'react';
+import { nanoid } from 'nanoid';
 import { InputForm } from 'components/InputForm';
 import { Filter } from 'components/Filter/';
 import { ContactList } from 'components/ContactList';
 import { PhonebookBox } from 'components/Phonebook/Phonebook.styled';
 import { InputFormBox } from 'components/InputForm/InputForm.styled';
 import { ContactListBox } from 'components/ContactList/ContactList.styled';
-import { nanoid } from 'nanoid';
 
 export class App extends Component {
   state = {
@@ -21,7 +21,10 @@ export class App extends Component {
     const equalName = this.state.contacts.find(
       el => el.name.toLowerCase() === data.name.toLowerCase()
     );
-    if (equalName) return alert(equalName.name + ' is already in contacts');
+    if (equalName)
+      return alert(
+        equalName.name + ' already been added to the contact list ;o('
+      );
 
     data.id = nanoid();
     this.setState(prev => ({ contacts: [data, ...prev.contacts] }));
