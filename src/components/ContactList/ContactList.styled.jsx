@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 export const ContactListBox = styled.ul`
   margin: 0 auto;
   padding: 12px;
+  margin-top: 24px;
   width: 320px;
   background-color: #e0e0bf;
   border: 1px solid black;
