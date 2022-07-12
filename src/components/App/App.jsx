@@ -23,7 +23,7 @@ export class App extends Component {
     );
     if (equalName)
       return alert(
-        equalName.name + ' already been added to the contact list ;o('
+        `${equalName.name} already been added to the contact list ;o(`
       );
 
     data.id = nanoid();
