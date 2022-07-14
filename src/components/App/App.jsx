@@ -7,6 +7,8 @@ import { PhonebookBox } from 'components/Phonebook/Phonebook.styled';
 import { InputFormBox } from 'components/InputForm/InputForm.styled';
 import { ContactListBox } from 'components/ContactList/ContactList.styled';
 
+const LS_KEY = 'contacts_object';
+
 export class App extends Component {
   state = {
     contacts: [
@@ -17,6 +19,20 @@ export class App extends Component {
     ],
     filter: '',
   };
+
+  componentDidMount() {
+    const prevData = localStorage.getItem(LS_KEY);
+    if (prevData !== null) {
+      this.setState({ contacts: JSON.parse(prevData) });
+    } else {
+      localStorage.setItem(LS_KEY, JSON.stringify(this.state.contacts));
+    }
+  }
+
+  componentDidUpdate(_, prevState) {
+    if (prevState !== this.state)
+      localStorage.setItem(LS_KEY, JSON.stringify(this.state.contacts));
+  }
   submitHandle = data => {
     const equalName = this.state.contacts.find(
       el => el.name.toLowerCase() === data.name.toLowerCase()
