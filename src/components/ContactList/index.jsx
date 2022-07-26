@@ -9,7 +9,7 @@ export function ContactList({ contacts, onDelete }) {
           key={contact.id}
           contact={contact}
           item={item}
-          method={onDelete}
+          onDelete={onDelete}
         />
       ))}
     </>

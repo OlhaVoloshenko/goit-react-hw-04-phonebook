@@ -6,12 +6,12 @@ import {
   DelBtn,
 } from '../ContactList/ContactList.styled';
 
-export function ContactItem({ contact, item, method }) {
+export function ContactItem({ contact, item, onDelete }) {
   return (
     <ListItem>
       <NumByOrder>{item + 1}</NumByOrder>
       {contact.name}: <TelNum>{contact.number}</TelNum>
-      <DelBtn type="button" onClick={() => method(contact.id)}>
+      <DelBtn type="button" onClick={() => onDelete(contact.id)}>
         Delete
       </DelBtn>
     </ListItem>
